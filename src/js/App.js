@@ -320,16 +320,22 @@ class App extends React.Component {
   motionExecute(motionId) {
 
     let executedMotion = this.state.motions[motionId - 1];
+
+    console.log('not there');
     this.ownertoken.defaults({
       from:this.web3.eth.accounts[0]
     })
 
+    console.log('over here');
     event.preventDefault();
     this.ownertoken.deployed().then((tokenInstance) => {
       this.tokenInstance = tokenInstance;
-      this.tokenInstance.mint(executedMotion.amount, executedMotion.addressTo).then(() => {
+      console.log('far enough?');
+      this.tokenInstance.mint(executedMotion.amount, executedMotion.addressTo, { from: this.state.account }).then(() => {
+        console.log('gone far');
         console.log(executedMotion.motionId);
-        
+        console.log('account');
+        console.log(this.state.acccount);
         this.electionInstance.finishMotion(executedMotion.motionId, { from: this.state.account }).then(() => {
           console.log('refresh and get your balance :)');
         });
@@ -436,8 +442,8 @@ class App extends React.Component {
               <tbody >
               
               {this.state.motions.filter(motion => motion.motionState === 'doing').map((motion) => 
-                  (<tr>
-                    <td>{motion.motionId}</td><td>Mint {motion.amount} tokens then transfer to {motion.addressTo}</td><td><button onClick={() => {this.motionExecute(motion.motionId)}} class='btn btn-primary'>Stamp</button></td>
+                  (<tr key={motion.motionId}>
+                    <td>{motion.motionId}</td><td>Mint {motion.amount} tokens then transfer to {motion.addressTo}</td><td><button onClick={() => {this.motionExecute(motion.motionId)}} className='btn btn-primary'>Stamp</button></td>
                   </tr>)
                 )}
               
