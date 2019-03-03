@@ -4,6 +4,8 @@ import ReactDOM from "react-dom";
 import Web3 from 'web3';
 import TruffleContract from 'truffle-contract';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import Election from '../../build/contracts/Election.json'
+import OwnerToken from '../../build/contracts/OwnerToken.json'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import "react-tabs/style/react-tabs.css";
@@ -20,7 +22,7 @@ class App extends React.Component {
 
     this.web3 = new Web3(this.web3Provider)
 
-    
+
   }
 
   

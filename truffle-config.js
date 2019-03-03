@@ -24,6 +24,11 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
+var HDWalletProvider = require("truffle-hdwallet-provider");
+
+var infura_apikey = "0af6a67a5e6c4576a2b0132877dce63c";
+var mnemonic = "soon effort fire slab profit great borrow bacon stem wedding quit clean";
+
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -36,6 +41,13 @@ module.exports = {
    */
 
   networks: {
+
+    development: {
+      host: "127.0.0.1",
+      port: "7545",
+      network_id: "*", // match any network id
+
+    }
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
     // You should run a client (like ganache-cli, geth or parity) in a separate terminal

@@ -21,6 +21,11 @@ module.exports = {
         use: ['style-loader','css-loader'],
         include: [/src/, /node_modules/]
       },
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
+        include: '/build/contracts/'
+      }
       /* 
       {
         test: /\.css$/,
