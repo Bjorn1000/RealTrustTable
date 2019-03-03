@@ -18,6 +18,12 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        use: ['style-loader','css-loader'],
+        include: [/src/, /node_modules/]
+      },
+      /* 
+      {
+        test: /\.css$/,
         use: [
           {
             loader: "style-loader"
@@ -34,6 +40,7 @@ module.exports = {
           }
         ]
       }
+      */
     ]
   }
 };
