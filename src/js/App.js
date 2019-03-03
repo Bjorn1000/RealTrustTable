@@ -4,6 +4,8 @@ import ReactDOM from "react-dom";
 import Web3 from 'web3';
 import TruffleContract from 'truffle-contract';
 
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -15,7 +17,14 @@ class App extends React.Component {
   render() {
     return (
       <div class="row">
-        lllll
+        <div class='col-lg-12 text-center' >
+          lllll
+          <Tabs>
+            <TabList>
+            </TabList>
+          </Tabs>
+        </div>
+        
       </div>
     )
   }
