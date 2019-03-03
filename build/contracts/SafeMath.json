@@ -2418,6 +2418,12 @@
     "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
   },
   "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0x2Ed716B82Ab20D1e588F394da8B1ee5B2060712C",
+      "transactionHash": "0x5f9969ae74d8154b261419180331bee460fde3c5b025c621a722571eb459c9fe"
+    },
     "5777": {
       "events": {},
       "links": {},
@@ -2426,7 +2432,7 @@
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2019-03-03T09:58:08.570Z",
+  "updatedAt": "2019-03-03T10:13:34.617Z",
   "devdoc": {
     "details": "Math operations with safety checks that throw on error\r",
     "methods": {},

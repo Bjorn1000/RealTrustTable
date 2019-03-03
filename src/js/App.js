@@ -14,6 +14,9 @@ class App extends React.Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      account: 0x0
+    }
     if (typeof web3 != 'undefined') {
       this.web3Provider = web3.currentProvider
     } else {
@@ -21,13 +24,35 @@ class App extends React.Component {
     }
 
     this.web3 = new Web3(this.web3Provider)
+    this.election = TruffleContract(Election)
+    this.election.setProvider(this.web3Provider)
+    this.ownertoken = TruffleContract(OwnerToken)
+    this.ownertoken.setProvider(this.web3Provider)
 
+    
 
   }
 
   
   componentDidMount() {
-
+    this.web3.eth.getCoinbase((err, account) => {
+      console.log(account);
+      this.setState({ account });
+      
+    });
+    /*
+    this.ownertoken.deployed().then((tokenInstance) => {
+      this.tokenInstance = tokenInstance;
+      this.tokenInstance.totalSupply().then((supply) => {
+        //this.setState({ totalSupply: supply});
+        //
+        return this.tokenInstance.balanceOf(this.state.account);
+      }).then((balance) => {
+        //console.log(balance.toNumber());
+        //this.setState({bankBalance: balance.toNumber()})
+      });
+    });
+    */
   }
 
   render() {

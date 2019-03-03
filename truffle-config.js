@@ -47,6 +47,13 @@ module.exports = {
       port: "7545",
       network_id: "*", // match any network id
 
+    },
+    ropsten: {
+      provider: function() {
+      return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/"+infura_apikey)
+      },
+      network_id: 3,
+      gas: 4698712
     }
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
