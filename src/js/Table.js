@@ -4,7 +4,7 @@ class Table extends React.Component {
   render() {
     
     return (
-      <table class='table'>
+      <table className='table'>
         <thead>
           <tr>
             <th></th>
@@ -16,12 +16,12 @@ class Table extends React.Component {
             <tr>
               <th>For</th>
               <td>{this.props.currentMotionObject.voteFor}</td>
-              <td><button onClick={() => {this.props.castVote(1)}} class='btn btn-primary'>Vote</button></td>
+              <td><button onClick={() => {this.props.castVote(1)}} className='btn btn-primary'>Vote</button></td>
             </tr>
             <tr>
               <th>Against</th>
               <td>{this.props.currentMotionObject.voteAgainst}</td>
-              <td><button onClick={() => {this.props.castAltVote(0)}} class='btn btn-primary'>Vote</button></td>
+              <td><button onClick={() => {this.props.castAltVote(0)}} className='btn btn-primary'>Vote</button></td>
             </tr>
         </tbody>
       </table>

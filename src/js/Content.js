@@ -24,14 +24,14 @@ class Content extends React.Component {
         
         
         <hr/>
-        <div class='form-group'>
+        <div className='form-group'>
           <label>Select Motion</label>
-          <select class="form-control" onChange={this.props.handleChange}>
-          <option value="Select a Motion" selected="true" disabled="disabled">Select a motion</option>
+          <select className="form-control" onChange={this.props.handleChange}>
+          <option value="Select a Motion" key={0} defaultValue={true} disabled="disabled">Select a motion</option>
             {this.props.motions.map((motion) => {
               if(motion.motionState == 'todo'){
                 return(
-                  <option value={motion.motionId}>{motion.motionName}</option>
+                  <option key={motion.motionId} value={motion.motionId}>{motion.motionName}</option>
                 )
               }
             })

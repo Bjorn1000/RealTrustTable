@@ -82,7 +82,14 @@ class App extends React.Component {
           this.tokenInstance = tokenInstance;
           return this.tokenInstance.bank();
       }).then((bankAccount) => {
+          console.log('bank account');
+          bankAccount = bankAccount.toUpperCase();
           console.log(bankAccount);
+          
+          console.log('your account');
+          account = account.toUpperCase();
+          console.log(account);
+
           if(account == bankAccount) {
             console.log("is bank");
             this.setState({isBank: true});
@@ -371,10 +378,10 @@ class App extends React.Component {
             </div>
 
                   To: <select onChange={this.onAddressChanged} style={{marginBottom: '10px'}}>
-                    <option disabled selected value> -- select an address -- </option>
+                    <option disabled defaultValue={true} key={0x0} value> -- select an address -- </option>
                       {this.state.addresses.map((address) => {
                         return(
-                          <option value={address}>{address}</option>
+                          <option key={address} value={address}>{address}</option>
                         )
                       })}
                     
