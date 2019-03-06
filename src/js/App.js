@@ -67,10 +67,8 @@ class App extends React.Component {
       this.tokenInstance = tokenInstance;
       this.tokenInstance.totalSupply().then((supply) => {
         this.setState({ totalSupply: supply});
-        console.log(this.state.account);
         return this.tokenInstance.balanceOf(this.state.account);
       }).then((balance) => {
-        console.log(balance.toNumber());
         this.setState({bankBalance: balance.toNumber()})
       });
     });
@@ -82,20 +80,13 @@ class App extends React.Component {
           this.tokenInstance = tokenInstance;
           return this.tokenInstance.bank();
       }).then((bankAccount) => {
-          console.log('bank account');
           bankAccount = bankAccount.toUpperCase();
-          console.log(bankAccount);
-          
-          console.log('your account');
           account = account.toUpperCase();
-          console.log(account);
 
           if(account == bankAccount) {
-            console.log("is bank");
             this.setState({isBank: true});
           }
           else {
-            console.log("is not bank");
             this.setState({isBank: false});
           }
       });
@@ -320,22 +311,14 @@ class App extends React.Component {
   motionExecute(motionId) {
 
     let executedMotion = this.state.motions[motionId - 1];
-
-    console.log('not there');
     this.ownertoken.defaults({
       from:this.web3.eth.accounts[0]
     })
 
-    console.log('over here');
     event.preventDefault();
     this.ownertoken.deployed().then((tokenInstance) => {
       this.tokenInstance = tokenInstance;
-      console.log('far enough?');
-      this.tokenInstance.mint(executedMotion.amount, executedMotion.addressTo, { from: this.state.account }).then(() => {
-        console.log('gone far');
-        console.log(executedMotion.motionId);
-        console.log('account');
-        console.log(this.state.acccount);
+        this.tokenInstance.mint(executedMotion.amount, executedMotion.addressTo, { from: this.state.account }).then(() => {
         this.electionInstance.finishMotion(executedMotion.motionId, { from: this.state.account }).then(() => {
           console.log('refresh and get your balance :)');
         });
